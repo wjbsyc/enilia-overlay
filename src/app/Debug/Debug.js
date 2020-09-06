@@ -11,7 +11,7 @@ start();
 function start() {
 	stop();
 	dispatch();
-	intervalId = setInterval(dispatch, 1000);
+	intervalId = setInterval(dispatch, 10000);
 }
 
 function stop() {
@@ -24,16 +24,27 @@ function dispatch() {
 		}
 	  , combatants = {}
 	  , combatant
-	  , jobs = ["Arc","Ast","Blm","Brd","Drg","Drk","Gld","Mch","Mnk","Nin","Pld","Sch","Smn","War","Whm"]
+	  , jobs = ["Arc","Ast","Blm","Blu","Brd","Cnj","Dnc","Drg","Drk","Gnb","Sam","Rdm","Gld","Mch","Mnk","Nin","Pld","Sch","Smn","War","Whm"]
 	  , duration
 	  , length = parseInt(Math.random() * 8 + 1)
 	  , overalldps = 0
 	  ;
-
-	do {
-		combatant = combatants["Name"+length] = getCombatant("Name"+length);
-		overalldps += parseInt(combatant.encdps)
-	} while (length-- > 1)
+	 combatant = combatants["YOU"] ={
+			name: "YOU",
+		    "duration": getDuration(),
+		    "encdps": getDPS(),
+		    "crithit%": getCritPct(),
+		    "misses": getMisses(),
+		    "Job": getJob(),
+		};
+	overalldps += parseInt(combatant.encdps);
+	length--;
+	if(length>1){
+		do {
+			combatant = combatants["Name"+length] = getCombatant("Name"+length);
+			overalldps += parseInt(combatant.encdps)
+		} while (length-- > 1)
+	}
 
 	for(length in combatants) {
 		combatants[length]["damage%"] = parseInt(combatants[length].encdps * 100 / overalldps) + "%";

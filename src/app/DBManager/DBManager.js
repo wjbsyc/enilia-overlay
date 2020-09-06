@@ -1,5 +1,5 @@
 ;(function() {
-	
+
 angular.module('enilia.overlay.dbmanager', ['enilia.overlay.tpls',
 											'ngStorage'])
 
@@ -16,7 +16,7 @@ angular.module('enilia.overlay.dbmanager', ['enilia.overlay.tpls',
 				}
 			  , isLoading
 			  ;
-			
+
 			return {
 				get: function get(key) {
 					return $storage[key];
@@ -90,11 +90,15 @@ angular.module('enilia.overlay.dbmanager', ['enilia.overlay.tpls',
 
 				$getDefault: function $getDefault () {
 					return {
-						name:'DPS',
+						name:'伤害',
 						cols: [
-							{label:  'Name',value: 'name'},
-							{label:  'Encdps',value: 'encdps'},
-							{label:  'Damage (%)',value: 'damagePct'},
+								{label:  '名称',value: 'name'},
+								{label:  '秒伤',value: 'ENCDPS'},
+								{label:  '伤害%',value: 'damagePct'},
+								{label:  '直击%',value: 'DirectHitPct'},
+								{label:  '伤暴击%',value: 'crithitPct'},
+								{label:  '60秒DPS',value: 'Last60DPS'},
+								{label:  '最强伤害',value: 'maxhit'},
 						]
 					}
 				}
@@ -104,12 +108,13 @@ angular.module('enilia.overlay.dbmanager', ['enilia.overlay.tpls',
 	.run(['$localStorage', 'VERSION',
 		function update($storage, VERSION) {
 			if($storage.VERSION) {
-				var version = $storage.VERSION.match(/(\d+).(\d+).(\d+)(?:-(.+))/)
-				  , major = version[1]
-				  , minor = version[2]
-				  , patch = version[3]
-				  , build = version[4]
-				  ;
+				// Need to debug this. WHy is this returning null?
+				var version = $storage.VERSION.match(/(\d+).(\d+).(\d+)(?:-(.+))/);
+				// console.log($storage);
+				//  major = version[1]
+				//	minor = version[2]
+				// patch = version[3]
+				// build = version[4]
 
 				/* Placeholder for future db patchs */
 			} else {
@@ -119,26 +124,30 @@ angular.module('enilia.overlay.dbmanager', ['enilia.overlay.tpls',
 					presets: [
 						{
 							__uid:1,
-							name:'DPS',
+							name:'伤害',
 							cols: [
-								{label:  'Name',value: 'name'},
-								{label:  'Dps',value: 'encdps'},
-								{label:  'Dps%',value: 'damagePct'},
-								{label:  'Crit%',value: 'crithitPct'},
-								{label:  'Misses',value: 'misses'},
+								{label:  '名称',value: 'name'},
+								{label:  '秒伤',value: 'ENCDPS'},
+								{label:  '伤害%',value: 'damagePct'},
+								{label:  '直击%',value: 'DirectHitPct'},
+								{label:  '伤暴击%',value: 'crithitPct'},
+								{label:  '60秒DPS',value: 'Last60DPS'},
+								{label:  '最强伤害',value: 'maxhit'},
 							]
 						},
 						{
 							__uid:2,
-							name:'Heal',
+							name:'治疗',
 							cols : [
-								{label:  'Name',value: 'name'},
-								{label:  'Dps',value: 'encdps'},
-								{label:  'Dps%',value: 'damagePct'},
-								{label:  'Hps',value: 'enchps'},
-								{label:  'Hps%',value: 'healedPct'},
-								{label:  'OverHeal',value: 'OverHealPct'},
-							]
+								{label:  '名称',value: 'name'},
+								{label:  '秒伤',value: 'ENCDPS'},
+								{label:  '秒疗',value: 'ENCHPS'},
+								{label:  '治疗%',value: 'healedPct'},								
+								{label:  '疗暴击%',value: 'crithealPct'},
+								{label:  '过量治疗%',value: 'OverHealPct'},
+								{label:  '驱散',value: 'cures'},
+								{label:  '最强治疗',value: 'maxheal'},
+				    ]
 						}
 					],
 					VERSION: VERSION,

@@ -1,6 +1,7 @@
 <div class="combatants">
 
-	<table>
+	<table  id="combatants_table">
+		<tbody id="combatants_tbody">
 			<tr class="tableheader">
 				<th class="header"
 					ng-repeat="header in headers"
@@ -10,12 +11,13 @@
 				bestdps="bestdps"
 				ng-repeat="combatant in combatants track by combatant.name"
 				ng-class="combatant.Job"
-				class="combatant"></tr>
+				class="combatant {{combatant.name == 'YOU'?'me':''}}"></tr>
 			<tr ng-hide="combatants">
 				<td colspan="{{headers.length}}}" class="waiting">
 					<div class="message">--- Waiting for Data ---</div>
 				</td>
 			</tr>
+		</tbody>
 	</table>
 
 </div>

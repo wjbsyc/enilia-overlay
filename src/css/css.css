@@ -203,8 +203,25 @@ a:active {
     width:2em;
 }
 .header.name {
-    width:6em;
+    width:4em;
 }
+.header.maxhit {
+    width:4em;
+}
+.collapsed #combatants_tbody > tr:not(.me) {
+  display: none;
+}
+/*.collapsed #table[data-width='2'] > tr:not(.me),
+.collapsed #table[data-width='3'] > tr:not(.me) {
+  width: 0;
+  margin: 0;
+}
+.collapsed #table[data-width='2'] > tr.me,
+.collapsed #table[data-width='3'] > tr.me {
+  background: none;
+  width: 100%;
+  margin: 0;
+}*/
 
 /* combatant */
 
@@ -284,8 +301,9 @@ fieldselect {
 
 
 /* Jobs */
-
+tr.Gnb,
 tr.Gld,
+tr.Gla
 tr.Pld,
 tr.Mrd,
 tr.War,
@@ -311,15 +329,18 @@ tr.Ast {
 }
 
 tr.Pgl,
+tr.Rdm,
 tr.Mnk,
 tr.Lnc,
 tr.Drg,
+tr.Dnc,
 tr.Arc,
 tr.Brd,
 tr.Rog,
 tr.Nin,
 tr.Acn,
 tr.Smn,
+tr.Sam,
 tr.Thm,
 tr.Blm,
 tr.Mch {

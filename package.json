@@ -1,6 +1,6 @@
 {
   "name": "enilia-overlay",
-  "version": "1.1.0-beta",
+  "version": "1.2.0-beta",
   "description": "overlay for rainbowmage ACT plugin",
   "keywords": [
     "overlay",
@@ -44,7 +44,7 @@
     "build-local": "node . -b",
     "build-parse": "node . -p",
     "build-release": "node . -r",
-    "start": "php -S localhost:80 -t parse/public"
+    "start": "php -S localhost:8080 -t parse/public"
   },
   "author": "Florian Olivier-André <florian.olivierandre@gmail.com>",
   "license": "ISC",
@@ -54,6 +54,7 @@
     "bluebird": "^2.10.2",
     "commander": "^2.8.1",
     "fs-extra-promise": "^0.2.1",
+    "glob-all": "^3.2.1",
     "node-watch": "^0.3.4"
   }
 }
