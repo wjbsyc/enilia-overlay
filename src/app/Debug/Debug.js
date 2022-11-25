@@ -24,7 +24,7 @@ function dispatch() {
 		}
 	  , combatants = {}
 	  , combatant
-	  , jobs = ["Arc","Ast","Blm","Blu","Brd","Cnj","Dnc","Drg","Drk","Gnb","Sam","Rdm","Gld","Mch","Mnk","Nin","Pld","Sch","Smn","War","Whm"]
+	  , jobs = ["Arc","Ast","Blm","Blu","Brd","Cnj","Dnc","Drg","Drk","Gnb","Sam","Rdm","Gld","Mch","Mnk","Nin","Pld","Sch","Smn","War","Whm","Rpr","Sge"]
 	  , duration
 	  , length = parseInt(Math.random() * 8 + 1)
 	  , overalldps = 0

@@ -303,7 +303,7 @@ fieldselect {
 /* Jobs */
 tr.Gnb,
 tr.Gld,
-tr.Gla
+tr.Gla,
 tr.Pld,
 tr.Mrd,
 tr.War,
@@ -319,6 +319,7 @@ tr.Drk {
 tr.Cnj,
 tr.Whm,
 tr.Sch,
+tr.Sge,
 tr.Ast {
     /*background-color: rgba(107,240,86,0.2);*/
     background: -webkit-gradient(linear, left top,right top, color-stop(0.95,rgba(107,240,86,0.2)), to(rgba(24,24,24,0.0))),
@@ -343,6 +344,7 @@ tr.Smn,
 tr.Sam,
 tr.Thm,
 tr.Blm,
+tr.Rpr,
 tr.Mch {
     /*background-color: rgba(200,3,8,0.2);*/
     background: -webkit-gradient(linear, left top,right top, color-stop(0.95,rgba(200,3,8,0.2)), to(rgba(24,24,24,0.0))),
